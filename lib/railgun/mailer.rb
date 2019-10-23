@@ -70,6 +70,7 @@ module Railgun
 
     # v:* attributes (variables)
     mail.mailgun_variables.try(:each) do |k, v|
+      pp v
       message["v:#{k}"] = JSON.dump(v)
     end
 
@@ -89,6 +90,7 @@ module Railgun
       msg_headers[k] = v
     end
 
+    pp mail.header_fields
     mail.header_fields.each do |field|
       msg_headers[field.name] = field.value
     end
