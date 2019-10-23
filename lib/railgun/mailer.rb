@@ -72,7 +72,7 @@ module Railgun
     mail.mailgun_variables.try(:each) do |k, v|
       Rails.logger.info k
       Rails.logger.info v
-      message["v:#{k}"] = JSON.dump(v)
+      message["v:#{k}"] = v
     end
 
     # o:* attributes (options)
